@@ -13,15 +13,14 @@
       <br />
 
       <div id="rate_form">
-        <%= form_for :restaurant,
-                     url: rate_restaurant_path(@restaurant),
+        <%= form_tag rate_restaurant_path(@restaurant),
                      remote: true,
-                     html: { class: "form-inline" } do |f|%>
+                     class: "form-inline" do%>
           <div class="form-group mb-2">
             <%= label_tag(:rating, "Rate Restaurant", class: 'sr-only') %>
             <%= select_tag(:rating, options_for_select([1, 2, 3, 4, 5]), class: 'form-control') %>
           </div>
-          <%= f.submit 'Rate', class:'btn btn-primary btn-sm' %>
+          <%= submit_tag 'Rate', class:'btn btn-primary btn-sm' %>
         <% end %>
       </div>
       <div id="rate_notice" class="d-none">
