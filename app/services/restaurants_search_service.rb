@@ -3,7 +3,7 @@ module RestaurantsSearchService
     restaurants = if params[:search].present?
                     Restaurant
                       .open
-                      .where('name like :query OR description like :query OR cousine like :query',
+                      .where('name ilike :query OR description ilike :query OR cousine ilike :query',
                              query: "%#{params[:search][:query]}%")
                   else
                     Restaurant.open
