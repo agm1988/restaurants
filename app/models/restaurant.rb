@@ -4,7 +4,9 @@ class Restaurant < ApplicationRecord
 
   mount_uploader :logo, LogoUploader
 
-  validates :name, :description, :cousine, :is_open, presence: true
+  paginates_per 2
+
+  validates :name, :description, :cousine, presence: true
   validates :logo, presence: true, if: proc { |r| r.is_open? }
   validates :name, uniqueness: { case_sensitive: false }
   validates :logo, file_size: { less_than: 1.megabytes }

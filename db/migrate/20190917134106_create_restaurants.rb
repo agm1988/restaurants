@@ -5,7 +5,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :cousine
       t.string :logo
-      t.boolean :is_open
+      t.boolean :is_open, null: false, default: false
 
       t.timestamps
     end

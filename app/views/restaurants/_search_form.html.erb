@@ -1,12 +1,15 @@
 <div id="search_form">
   <%= form_for :search,
-               url: search_restaurants_path,
+               url: restaurants_path,
                remote: true,
-               html: { class: "form-inline" } do |f|%>
-    <div class="form-group mb-2">
-      <%= label_tag(:rating, "Rate Restaurant", class: 'sr-only') %>
-      <%= select_tag(:rating, options_for_select([1, 2, 3, 4, 5]), class: 'form-control') %>
+               method: :get,
+               html: { class: "form-inline input-group" } do |f|%>
+      <%= f.text_field(:query, value: params.dig(:search, :query), class: 'form-control') %>
+    <div class="input-group-append">
+    <%= f.submit 'Search', class:'btn btn-primary' %>
+      <%= link_to("Clear", restaurants_path, class: 'btn btn-outline-secondary') %>
     </div>
-    <%= f.submit 'Rate', class:'btn btn-primary btn-sm' %>
   <% end %>
 </div>
+
+<br />

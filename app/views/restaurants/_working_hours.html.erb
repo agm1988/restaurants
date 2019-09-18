@@ -1,0 +1,10 @@
+<div>
+  <h4>Working Hours</h4>
+  <% if working_hours.any? %>
+    <ul class="list-group list-group-flush">
+      <%= render partial: 'working_hour', collection: working_hours %>
+    </ul>
+  <% else %>
+    <p>Workinh hours not specified</p>
+  <% end %>
+</div>

@@ -34,7 +34,14 @@
 <div class="wrapper">
   <div class="container">
     <h1>Restaurants</h1>
+    <%= render partial: 'search_form' %>
 
-    <%= render @restaurants %>
+    <div id="restaurants_list">
+      <%= render @restaurants %>
+    </div>
+
+    <div id="restaurants_list_pagination">
+      <%= paginate @restaurants %>
+    </div>
   </div>
 </div>

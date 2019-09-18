@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:edit, :update, :show, :rate]
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = RestaurantsSearchService.call(params)
   end
 
   def show
