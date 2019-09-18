@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4"><%= @restaurant.name %></h1>
+      <div class="lead"><%= @restaurant.description %></div>
+      <div><%= image_tag(@restaurant.logo_url(:square), alt: @restaurant.name) %></div>
+      <hr class="my-4">
+      <p>Cousine: <%= @restaurant.cousine %></p>
+      <p>Already Opened: <%= @restaurant.is_open? ? 'Open' : 'Not Opened' %></p>
+      <p><%= display_rating(@restaurant) %></p>
+      <p></p>
+
+      <br />
+
+      <div id="rate_form">
+        <%= form_for :restaurant,
+                     url: rate_restaurant_path(@restaurant),
+                     remote: true,
+                     html: { class: "form-inline" } do |f|%>
+          <div class="form-group mb-2">
+            <%= label_tag(:rating, "Rate Restaurant", class: 'sr-only') %>
+            <%= select_tag(:rating, options_for_select([1, 2, 3, 4, 5]), class: 'form-control') %>
+          </div>
+          <%= f.submit 'Rate', class:'btn btn-primary btn-sm' %>
+        <% end %>
+      </div>
+      <div id="rate_notice" class="d-none">
+        <p class="text-success">Yor rate was submitted</p>
+      </div>
+      <i class="glyphicon glyphicon-star"></i>
+    </div>
+
+    <%= link_to 'Back', restaurants_path %>
+  </div>
+</div>

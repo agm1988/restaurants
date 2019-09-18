@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  restaurant: one
+  week_day: 1
+  start_time: 2019-09-17 14:11:28
+  end_time: 2019-09-17 14:11:28
+
+two:
+  restaurant: two
+  week_day: 1
+  start_time: 2019-09-17 14:11:28
+  end_time: 2019-09-17 14:11:28
