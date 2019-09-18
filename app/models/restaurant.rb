@@ -4,7 +4,7 @@ class Restaurant < ApplicationRecord
 
   mount_uploader :logo, LogoUploader
 
-  paginates_per 2
+  paginates_per 5
 
   validates :name, :description, :cousine, presence: true
   validates :logo, presence: true, if: proc { |r| r.is_open? }
