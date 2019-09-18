@@ -4,4 +4,5 @@ class Rating < ApplicationRecord
   belongs_to :restaurant
 
   validates :rate, numericality: { only_integer: true, inclusion: RATINGS }
+  validates :rate, :restaurant, presence: true
 end

@@ -37,7 +37,11 @@
     <%= render partial: 'search_form' %>
 
     <div id="restaurants_list">
-      <%= render @restaurants %>
+      <% if @restaurants.present? %>
+        <%= render @restaurants %>
+      <% else %>
+        <p>No Restaurants found</p>
+      <% end %>
     </div>
 
     <div id="restaurants_list_pagination">

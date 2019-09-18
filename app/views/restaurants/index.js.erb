@@ -5,4 +5,6 @@ $('#restaurants_list_pagination').empty();
   $('#restaurants_list').append("<%= escape_javascript(render partial: 'restaurant', collection: @restaurants) %>");
 
   $('#restaurants_list_pagination').append("<%= escape_javascript(paginate @restaurants, remote: true) %>");
+<% else %>
+  $('#restaurants_list').append("<p>No Restaurants Found</p>");
 <% end %>
