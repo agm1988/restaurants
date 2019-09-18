@@ -2,6 +2,30 @@ ActiveAdmin.register Restaurant do
   permit_params :name, :description, :cousine, :logo, :is_open,
                 working_hours_attributes: [:id, :week_day, :start_time, :end_time]
 
+  scope :all
+  scope :open
+  scope :closed
+
+  index do
+    selectable_column
+    column :id
+    column :name
+    column :description
+    column :cousine
+    column :logo do |restaurant|
+      image_tag(restaurant.logo_url(:thumb))
+    end
+    column :open do |restaurant|
+      restaurant.is_open ? "Open" : "Closed"
+    end
+    column :created_at
+    column :updated_at
+    column :rating do |restaurant|
+      display_rating(restaurant) || 'Not Specified'
+    end
+    actions
+  end
+
   form do |f|
     f.inputs 'Details' do
       f.input :name
